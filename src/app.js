@@ -46,11 +46,8 @@ app.put("/repositories/:id", (request, response) => {
     title,
     url,
     techs,
+    likes: repositories[repositoryIndex].likes
   };
-
-  if(repository.likes || request.body.likes) {
-    return response.status(400).json({ likes: 0, error: 'LIKES cannot be passed manually'});
-  }
 
   repositories[repositoryIndex] = repository;
 
